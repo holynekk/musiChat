@@ -102,7 +102,7 @@ class UpdateRoom(APIView):
             votes_to_skip = serializer.data.get('votes_to_skip')
             code = serializer.data.get('code')
 
-            queryset = Room.object.filter(code=code)
+            queryset = Room.objects.filter(code=code)
             if not queryset.exists():
                 return Response({'msg': 'Room does not exist'}, status=status.HTTP_404_NOT_FOUND)
             room = queryset[0]
